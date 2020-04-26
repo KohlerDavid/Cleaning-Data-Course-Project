@@ -1,3 +1,17 @@
+Coursera - Cleaning - Wk4
+
+This is the readme file for the final assignment of the Getting and Cleansing Course on Coursera
+
+This repository contains:
+
+    run_analysis.R --> performes all the necessary tasks (described below in more detail)
+    the Codebook describes what kind of data table were used and who the procedured was done in detail
+    Solution.txt the result -->  group means of subject and activity
+    
+
+The actual data files are not included; they can be found over here: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+
 # Cleaning-Data-Course-Project
 #Description to the performed exercise
 
