@@ -1,0 +1,67 @@
+# Code book
+
+1. In a first step the data was downloaded and extracted form the folder UCI HAR Dataset
+
+2. The data which is in "txt, format was imported into R and thereby the data is assigned to a variable 
+
+# data frame features--> consists of two variables with name n and functions. The functions are the names
+of the columns in the data_frame x_test and y_test /561 obs. of  2 variables:
+# data frame activities-> two variables first one is number called code which is linked to desciption of the activity in the second 
+column e.g. code 1 = WALKING /6 obs. of  2 variables
+#subject_test--> one varaiable "subject" which contains test data of 9/30 volunteer test subjects being observed / 2947 obs. of  1 variable:
+#subject_train-->one varaiable "subject" which contains contains train data of 21/30 volunteer subjects being observed / 7352 obs. of  1 variable:
+#x_test-> data frame which take test data and adds the names of columns from the data frame feature column function / 2947 obs. of  561 variables
+#x_train-> data frame which take train data and adds the names of columns from the data frame feature column function /7352 obs. of  561 variables
+#y_test-> data frame which has one column call code which descripes the activty through a number/ 2947 obs. of  1 variable
+#y_train-> data frame which has one column call code which descripes the activty through a number / 7352 obs. of  1 variable
+
+3. Merging of the all the train and test data
+
+#df_test-> all the test data from above (x_test,y_test,subject_test) where merged in one df using cbind / 2947 obs. of  563 variables
+#df_train-> all the train data from above (x_train,y_train,subject_train) where merged in one df using cbind / 7352 obs. of  563 variables
+
+#final_data-> rbind of df_train and df_test giving a new dataframe which contains all the data /10299 obs. of  563 variables
+
+4. Extraction of measurements which contain mean or std in column name
+
+# df selected is created which contains the columns which contain mean or std in there name / 10299 obs. of  563 variables
+
+5. Uses descriptive activity names to name the activities in the data set 
+# Entire numbers in code column of the final_data replaced with corresponding activity taken from second column of the activities variable 
+and safed in a new df called final_data_names_activity
+
+6. Appropriately labels the data set with descriptive variable names ◦code column in final_data_names_activity renamed into activities
+All Acc in column’s name replaced by Accelerometer
+All Gyro in column’s name replaced by Gyroscope
+All BodyBody in column’s name replaced by Body
+All Mag in column’s name replaced by Magnitude
+All start with character f in column’s name replaced by Frequency
+All start with character t in column’s name replaced by Time
+
+gives column names like:
+
+[2] "TimeBodyAccelerometer.mean...X"                      
+  [3] "TimeBodyAccelerometer.mean...Y"                      
+  [4] "TimeBodyAccelerometer.mean...Z"                      
+  [5] "TimeBodyAccelerometer.std...X"                       
+  [6] "TimeBodyAccelerometer.std...Y"                       
+  [7] "TimeBodyAccelerometer.std...Z"                       
+  [8] "TimeBodyAccelerometer.mad...X"                       
+  [9] "TimeBodyAccelerometer.mad...Y"                       
+ [10] "TimeBodyAccelerometer.mad...Z"                       
+ [11] "TimeBodyAccelerometer.max...X"                       
+ [12] "TimeBodyAccelerometer.max...Y"                       
+ [13] "TimeBodyAccelerometer.max...Z"                       
+ [14] "TimeBodyAccelerometer.min...X"                       
+ [15] "TimeBodyAccelerometer.min...Y"                       
+ [16] "TimeBodyAccelerometer.min...Z"                       
+ 
+ etc...
+
+7. From the data final_data_names_activity creates a second data set with the average of each variable for each activity and each subject 
+
+FinalData (180 rows, 88 columns) is created by sumarizing final_data_names_activity taking the means of each variable for each activity and each subject, after groupped by subject and activity.
+Export into Solution.txt file
+
+
+
